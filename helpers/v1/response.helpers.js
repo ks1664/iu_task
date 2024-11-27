@@ -1,20 +1,22 @@
 require('dotenv').config();
 
+const i18n = require('i18n')
+
 module.exports = class ResponseHelper {
     async success(msg, res, data) {
-        this.sendResponse(200, msg, res, data);
+        this.sendResponse(200, i18n.__(msg), res, data);
     };
 
     async created(msg, res, data) {
-        this.sendResponse(200, msg, res, data);
+        this.sendResponse(200, i18n.__(msg), res, data);
     };
 
     async disallowed(msg, res, data) {
-        this.sendResponse(400, msg, res, data);
+        this.sendResponse(400, i18n.__(msg), res, data);
     };
 
     async noContent(msg, res, data) {
-        this.sendResponse(200, msg, res, data);
+        this.sendResponse(200, i18n.__(msg), res, data);
     };
 
     async redirect(url, res) {
@@ -25,34 +27,34 @@ module.exports = class ResponseHelper {
     };
 
     async badRequest(msg, res, data) {
-        this.sendResponse(400, msg, res, data);
+        this.sendResponse(400, i18n.__(msg), res, data);
     };
 
     async validationError(msg, res, data) {
-        this.sendResponse(400, msg, res, data);
+        this.sendResponse(400, i18n.__(msg), res, data);
     };
     async unauthorized(msg, res, data) {
-        this.sendResponse(401, msg, res, data);
+        this.sendResponse(401, i18n.__(msg), res, data);
     };
 
     async forbidden(msg, res, data) {
-        this.sendResponse(400, msg, res, data);
+        this.sendResponse(400, i18n.__(msg), res, data);
     };
 
     async notFound(msg, res, data) {
-        this.sendResponse(404, msg, res, data);
+        this.sendResponse(404, i18n.__(msg), res, data);
     };
 
     async exception(msg, res, data) {
-        this.sendResponse(500, msg, res, data);
+        this.sendResponse(500, i18n.__(msg), res, data);
     };
 
     async conflict(msg, res, data) {
-        this.sendResponse(400, msg, res, data);
+        this.sendResponse(400, i18n.__(msg), res, data);
     };
 
     async custom(code, msg, res, data) {
-        this.sendResponse(code, msg, res, data);
+        this.sendResponse(code, i18n.__(msg), res, data);
     }
 
     async twoFactorEnabled(res) {

@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const path = require("path");
+const i18n = require("i18n");
 
 // custom req
 const CONFIG = require("../config/v1/config");
@@ -34,7 +35,9 @@ module.exports = function (app) {
 
   // Set header request for global use
   app.use((req, res, next) => {
-    
+    req.headers["accept-language"]
+      ? i18n.setLocale(req.headers["accept-language"])
+      : "en";
     next();
   });
 

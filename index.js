@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
+const i18n = require('i18n')
+
 let server;
+const i18nConfig = require('./i18n')
 
 /**
  * configure shared state
  */
+i18n.configure(i18nConfig)
 
 require('./startup')(app);
 require('./config/v1/mongodb');
