@@ -26,9 +26,17 @@ module.exports = class PostsResource {
       ],
     };
 
+    let tagQuery = {
+      tags: { $in: data.tag },
+    };
+
     let query = {
       ...(data.search && searchQuery),
+      ...(data.tag && tagQuery),
     };
+
+    console.log("query  ",query);
+    
 
     let sortObj = {};
 
