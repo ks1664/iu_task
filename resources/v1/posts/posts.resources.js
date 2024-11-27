@@ -33,10 +33,7 @@ module.exports = class PostsResource {
     let query = {
       ...(data.search && searchQuery),
       ...(data.tag && tagQuery),
-    };
-
-    console.log("query  ",query);
-    
+    };    
 
     let sortObj = {};
 
